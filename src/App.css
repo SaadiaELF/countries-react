@@ -83,11 +83,11 @@ body {
     padding: 1rem;
 }
 
-.card__list>li {
+li {
     list-style: none;
 }
 
-.card__list>li>span {
+span {
     font-weight: 600;
 }
 
