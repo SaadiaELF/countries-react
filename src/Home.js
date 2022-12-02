@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Header from "./components/Header";
 import Container from "./components/Container";
 import Card from "./components/Card";
 import Search from "./components/Search";
@@ -50,7 +49,6 @@ function Home() {
 
   return (
     <div className="App">
-      <Header />
       <Container className="container--secondary">
         <Search onchange={search} />
         <Select onchange={filterByRegion} />

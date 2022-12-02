@@ -91,4 +91,25 @@ body {
     font-weight: 600;
 }
 
+.btn {
+    display: block;
+    padding: 0.5rem 2rem;
+    margin: 2rem;
+    font-size: 1em;
+    text-align: center;
+    color: var(--white);
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 0.2);
+}
+
+.btn--primary {
+    background-color: var(--dark-mode-elements);
+    border: 1px solid var(--dark-mode-elements);
+}
+
+.link {
+    text-decoration: none;
+}
+
 @media screen and (min-width:1440px) {}
