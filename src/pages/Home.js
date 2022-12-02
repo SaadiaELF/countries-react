@@ -4,7 +4,7 @@ import Card from "../components/Card";
 import Search from "../components/Search";
 import Select from "../components/Select";
 
-function Home() {
+function Home(props) {
   const [allCountries, setAllCountries] = useState([]);
   const [countries, setCountries] = useState([]);
   const [regionCountries, setRegionCountries] = useState([]);
@@ -45,7 +45,6 @@ function Home() {
       setRegionCountries(filteredCountries);
     }
   }
-
   return (
     <div className="App">
       <Container className="container--secondary">
@@ -56,6 +55,7 @@ function Home() {
         {countries.map((country, index) => {
           return (
             <Card
+              value={country.name.common}
               key={index}
               imageSrc={country.flags.png}
               imageAlt={country.name.common}
@@ -63,6 +63,7 @@ function Home() {
               population={country.population}
               region={country.region}
               capital={country.capital}
+              handleClick={props.handleClick}
             />
           );
         })}

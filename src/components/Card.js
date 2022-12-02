@@ -1,11 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Card(props) {
   return (
     <div className="card">
       <img className="card__img" src={props.imageSrc} alt={props.imageAlt} />
       <div className="card__body">
-        <h2 className="card__title">{props.title}</h2>
+        <Link to="/country">
+          <h2
+            className="card__title"
+            id={props.title}
+            onClick={props.handleClick}
+          >
+            {props.title}
+          </h2>
+        </Link>
         <ul className="card__list">
           <li>
             <span>Population: </span>
