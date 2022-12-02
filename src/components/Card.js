@@ -6,7 +6,7 @@ function Card(props) {
     <div className="card">
       <img className="card__img" src={props.imageSrc} alt={props.imageAlt} />
       <div className="card__body">
-        <Link to="/country">
+        <Link to={"/" + props.title.toLowerCase()}>
           <h2
             className="card__title"
             id={props.title}
