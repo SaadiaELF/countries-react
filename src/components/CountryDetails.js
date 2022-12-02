@@ -9,16 +9,6 @@ function CountryDetails(props) {
       .then((data) => {
         setCountry(data[0]);
       });
-    // const fetchData = async () => {
-    //   const data = await fetch(
-    //     `https://restcountries.com/v3.1/name/${props.countryName}`
-    //   );
-    //   const json = await data.json();
-    //   setCountry(json[0]);
-    // };
-    // fetchData()
-    //   // make sure to catch any error
-    //   .catch(console.error);
   }, [props.countryName]);
 
   console.log(country);
@@ -37,9 +27,9 @@ function CountryDetails(props) {
             <div className="card__lists--country">
               <ul className="card__list--country">
                 <li>
-                <span>Native name: </span>
-                {Object.values(country.name.nativeName)[0].common}
-              </li>
+                  <span>Native name: </span>
+                  {Object.values(country.name.nativeName)[0].common}
+                </li>
                 <li>
                   <span>Population: </span>
                   {country.population}
@@ -60,7 +50,7 @@ function CountryDetails(props) {
               <ul className="card__list--country">
                 <li>
                   <span>Top Level Domain: </span>
-                  {country.tld}
+                  {country.tld[0]}
                 </li>
                 <li>
                   <span>Currencies: </span>
@@ -69,10 +59,20 @@ function CountryDetails(props) {
                 <li>
                   <span>Languages: </span>
                   {Object.values(country.languages).map((language) => {
-                    return <span>{language}</span>;
+                    return <span>{language + " | "}</span>;
                   })}
                 </li>
               </ul>
+            </div>
+            <div className="card__borders">
+              <span>Border Countries: </span>
+              <div className="card__buttons">
+                {country.borders.map((border) => {
+                  return (
+                    <button className="btn btn--secondary">{border}</button>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>

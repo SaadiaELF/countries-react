@@ -7,7 +7,7 @@ import "./App.css";
 
 function App() {
   const [countryName, setCountryName] = useState("peru");
-  console.log(countryName);
+
   return (
     <BrowserRouter>
       <Header />
@@ -23,7 +23,7 @@ function App() {
           }
         />
         <Route
-          path="/country"
+          path={"/country"}
           element={<Country countryName={countryName} />}
         />
       </Routes>

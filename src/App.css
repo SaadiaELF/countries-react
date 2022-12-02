@@ -89,6 +89,7 @@ li {
 
 span {
     font-weight: 600;
+    padding-right: 5px;
 }
 
 .btn {
@@ -110,6 +111,55 @@ span {
 
 .link {
     text-decoration: none;
+}
+
+.card--country {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card__img--country {
+    height: 350px;
+    width: auto;
+}
+
+.card__body--country {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.card__lists--country {
+    display: flex;
+    gap: 4rem;
+}
+
+.card__list--country {
+    margin-top: 1rem;
+}
+
+.card__list--country>li {
+    margin-top: 5px;
+}
+
+.card__borders {
+    display: flex;
+    align-items: center;
+
+}
+
+.card__buttons {
+    display: flex;
+}
+
+.btn--secondary {
+    height: max-content;
+    font-size: 0.8rem;
+    margin: 5px;
+    padding: 5px 20px;
+    background-color: var(--dark-mode-elements);
+    border: 1px solid var(--dark-mode-elements);
 }
 
 @media screen and (min-width:1440px) {}
