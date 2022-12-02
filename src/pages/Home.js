@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Container from "./components/Container";
-import Card from "./components/Card";
-import Search from "./components/Search";
-import Select from "./components/Select";
-import "./App.css";
+import Container from "../components/Container";
+import Card from "../components/Card";
+import Search from "../components/Search";
+import Select from "../components/Select";
 
 function Home() {
   const [allCountries, setAllCountries] = useState([]);
