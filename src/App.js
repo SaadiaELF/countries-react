@@ -4,6 +4,7 @@ import Container from "./components/Container";
 import Card from "./components/Card";
 import Search from "./components/Search";
 import "./App.css";
+import Select from "./components/Select";
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -26,8 +27,11 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Search onchange={search} />
-      <Container>
+      <Container className="container--secondary">
+        <Search onchange={search} />
+        <Select />
+      </Container>
+      <Container className="container--primary">
         {filteredCountries.map((country, index) => {
           return (
             <Card
