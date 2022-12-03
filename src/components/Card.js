@@ -1,32 +1,36 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Card(props) {
+function Card({ country }) {
   return (
     <div className="card">
-      <img className="card__img" src={props.imageSrc} alt={props.imageAlt} />
+      <img
+        className="card__img"
+        src={country.flags.png}
+        alt={country.name.common}
+      />
       <div className="card__body">
-        <Link to={"/" + props.title.toLowerCase()}>
+        <Link to={"/" + country.name.common.toLowerCase()}>
           <h2
             className="card__title"
-            id={props.title}
-            onClick={props.handleClick}
+            id={country.name.common}
+            onClick={country.handleClick}
           >
-            {props.title}
+            {country.name.common}
           </h2>
         </Link>
         <ul className="card__list">
           <li>
             <span>Population: </span>
-            {props.population}
+            {country.population}
           </li>
           <li>
             <span>Region: </span>
-            {props.region}
+            {country.region}
           </li>
           <li>
             <span>Capital: </span>
-            {props.capital}
+            {country.capital}
           </li>
         </ul>
       </div>

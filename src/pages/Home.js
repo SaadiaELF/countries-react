@@ -55,8 +55,9 @@ function Home(props) {
         {countries.map((country, index) => {
           return (
             <Card
-              value={country.name.common}
               key={index}
+              country={country}
+              value={country.name.common}
               imageSrc={country.flags.png}
               imageAlt={country.name.common}
               title={country.name.common}
