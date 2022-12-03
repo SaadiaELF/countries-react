@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Card({ country }) {
+function Card({ country, handleClick }) {
+  console.log(country.name.common);
   return (
     <div className="card">
       <img
@@ -14,7 +15,7 @@ function Card({ country }) {
           <h2
             className="card__title"
             id={country.name.common}
-            onClick={country.handleClick}
+            onClick={handleClick}
           >
             {country.name.common}
           </h2>

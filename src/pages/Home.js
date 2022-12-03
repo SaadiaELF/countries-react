@@ -57,13 +57,6 @@ function Home(props) {
             <Card
               key={index}
               country={country}
-              value={country.name.common}
-              imageSrc={country.flags.png}
-              imageAlt={country.name.common}
-              title={country.name.common}
-              population={country.population}
-              region={country.region}
-              capital={country.capital}
               handleClick={props.handleClick}
             />
           );
