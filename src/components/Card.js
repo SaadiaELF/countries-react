@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Card({ country, handleClick }) {
-  console.log(country.name.common);
   return (
     <div className="card">
       <img

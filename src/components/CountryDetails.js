@@ -67,11 +67,11 @@ function CountryDetails(props) {
             <div className="card__borders">
               <span>Border Countries: </span>
               <div className="card__buttons">
-                {country.borders.map((border) => {
+                {country.borders? country.borders.map((border) => {
                   return (
                     <button className="btn btn--secondary">{border}</button>
                   );
-                })}
+                }):"None"}
               </div>
             </div>
           </div>
