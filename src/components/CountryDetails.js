@@ -1,17 +1,32 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function CountryDetails(props) {
   const [country, setCountry] = useState({});
+  const [borderCountries, setBorderCountries] = useState([]);
+  const [countriesCode, setCountriesCode] = useState([]);
 
   useEffect(() => {
     fetch(`https://restcountries.com/v3.1/name/${props.countryName}`)
       .then((response) => response.json())
       .then((data) => {
         setCountry(data[0]);
+        console.log(data[0].borders);
+        if (data[0].borders) {
+          setCountriesCode(data[0].borders.toString());
+        }
       });
   }, [props.countryName]);
 
-  console.log(country);
+  useEffect(() => {
+    countriesCode.length
+      && fetch(`https://restcountries.com/v3.1/alpha?codes=${countriesCode}`)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          setBorderCountries(data);
+        });
+  }, [props.countryName, countriesCode]);
 
   return (
     <div className="container container--country">
@@ -67,11 +82,17 @@ function CountryDetails(props) {
             <div className="card__borders">
               <span>Border Countries: </span>
               <div className="card__buttons">
-                {country.borders? country.borders.map((border) => {
-                  return (
-                    <button className="btn btn--secondary">{border}</button>
-                  );
-                }):"None"}
+                {country.borders
+                  ? country.borders.map((border, i) => {
+                      return (
+                        <button key={i} className="btn btn--secondary">
+                          <Link className="link" to="/">
+                            {border}
+                          </Link>
+                        </button>
+                      );
+                    })
+                  : "None"}
               </div>
             </div>
           </div>
