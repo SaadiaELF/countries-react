@@ -11,7 +11,10 @@ function Country(props) {
           Back
         </Link>
       </Button>
-      <CountryDetails countryName={props.countryName} />
+      <CountryDetails
+        countryName={props.countryName}
+        handleClick={props.handleClick}
+      />
     </div>
   );
 }
