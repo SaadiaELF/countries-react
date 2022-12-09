@@ -115,6 +115,7 @@ span {
 
 .card--country {
     display: flex;
+    gap: 2rem;
     justify-content: space-around;
     align-items: center;
 }
@@ -151,6 +152,7 @@ span {
 
 .card__buttons {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .btn--secondary {

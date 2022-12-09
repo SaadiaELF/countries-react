@@ -19,6 +19,7 @@ function CountryDetails(props) {
   }, [props.countryName]);
 
   useEffect(() => {
+    // eslint-disable-next-line operator-linebreak
     countriesCode.length &&
       fetch(`https://restcountries.com/v3.1/alpha?codes=${countriesCode}`)
         .then((response) => response.json())
