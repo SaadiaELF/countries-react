@@ -24,7 +24,14 @@ function App() {
         />
         <Route
           path={"/:" + countryName}
-          element={<Country countryName={countryName} />}
+          element={
+            <Country
+              countryName={countryName}
+              handleClick={(e) => {
+                setCountryName(e.currentTarget.id.toLowerCase());
+              }}
+            />
+          }
         />
       </Routes>
     </BrowserRouter>
