@@ -19,8 +19,8 @@ function CountryDetails(props) {
   }, [props.countryName]);
 
   useEffect(() => {
-    countriesCode.length
-      && fetch(`https://restcountries.com/v3.1/alpha?codes=${countriesCode}`)
+    countriesCode.length &&
+      fetch(`https://restcountries.com/v3.1/alpha?codes=${countriesCode}`)
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
@@ -82,12 +82,20 @@ function CountryDetails(props) {
             <div className="card__borders">
               <span>Border Countries: </span>
               <div className="card__buttons">
-                {country.borders
-                  ? country.borders.map((border, i) => {
+                {borderCountries
+                  ? borderCountries.map((border, i) => {
                       return (
-                        <button key={i} className="btn btn--secondary">
-                          <Link className="link" to="/">
-                            {border}
+                        <button
+                          key={i}
+                          className="btn btn--secondary"
+                          id={border.name.common}
+                          onClick={props.handleClick}
+                        >
+                          <Link
+                            className="link"
+                            to={"/" + border.name.common.toLowerCase()}
+                          >
+                            {border.name.common}
                           </Link>
                         </button>
                       );
