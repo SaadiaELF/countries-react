@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import "./App.css";
 
 function App() {
-  const [countryName, setCountryName] = useState("peru");
+  const [countryName, setCountryName] = useState("");
 
   return (
     <BrowserRouter>

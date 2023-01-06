@@ -20,11 +20,12 @@ function Home(props) {
   }, []);
 
   function search(e) {
-    if (e.target.value) {
+    let searchTerm = e.target.value;
+    if (searchTerm) {
       const filtered = regionCountries.filter((country) => {
         return country.name.common
           .toLowerCase()
-          .includes(e.target.value.toLowerCase());
+          .includes(searchTerm.toLowerCase());
       });
       setCountries(filtered);
     } else {
