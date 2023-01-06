@@ -6,6 +6,7 @@ import Select from "../components/Select";
 
 function Home(props) {
   const [allCountries, setAllCountries] = useState([]);
+  // filtered countries
   const [countries, setCountries] = useState([]);
   const [regionCountries, setRegionCountries] = useState([]);
 

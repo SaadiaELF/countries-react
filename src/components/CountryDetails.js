@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-function CountryDetails(props) {
+function CountryDetails({ countryName, handleClick }) {
   const [country, setCountry] = useState({});
   const [borderCountries, setBorderCountries] = useState([]);
   const [countriesCode, setCountriesCode] = useState([]);
 
   useEffect(() => {
-    fetch(`https://restcountries.com/v3.1/name/${props.countryName}`)
+    fetch(`https://restcountries.com/v3.1/name/${countryName}`)
       .then((response) => response.json())
       .then((data) => {
         setCountry(data[0]);
@@ -16,7 +16,7 @@ function CountryDetails(props) {
           setCountriesCode(data[0].borders.toString());
         }
       });
-  }, [props.countryName]);
+  }, [countryName]);
 
   useEffect(() => {
     // eslint-disable-next-line operator-linebreak
@@ -27,7 +27,7 @@ function CountryDetails(props) {
           console.log(data);
           setBorderCountries(data);
         });
-  }, [props.countryName, countriesCode]);
+  }, [countriesCode]);
 
   return (
     <div className="container container--country">
@@ -90,7 +90,7 @@ function CountryDetails(props) {
                           key={i}
                           className="btn btn--secondary"
                           id={border.name.common}
-                          onClick={props.handleClick}
+                          onClick={handleClick}
                         >
                           <Link
                             className="link"
