@@ -4,7 +4,7 @@ function Select(props) {
   return (
     <div className="select">
       <select className="select-input" onChange={props.onchange}>
-        <option className="select-option" value="-1">
+        <option className="select-option" value="">
           Filter by Region
         </option>
         <option className="select-option" value="Africa">

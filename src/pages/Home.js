@@ -22,18 +22,13 @@ function Home(props) {
   useEffect(() => doFilter(), [searchVal, filterVal]);
 
   function doFilter() {
-    if (filterVal) {
-      let filteredCountries = allCountries.filter((country) =>
-        country.region.toLowerCase().includes(filterVal)
-      );
-      setCountries(filteredCountries);
-    }
-    if (searchVal) {
-      let filteredCountries = countries.filter((country) => {
-        return country.name.common.toLowerCase().includes(searchVal);
-      });
-      setCountries(filteredCountries);
-    }
+    setCountries(
+      allCountries.filter(
+        (country) =>
+          (country.region.toLowerCase().includes(filterVal) || !filterVal) &&
+          (country.name.common.toLowerCase().includes(searchVal) || !searchVal)
+      )
+    );
   }
 
   return (
