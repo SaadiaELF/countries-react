@@ -19,12 +19,14 @@ function Home(props) {
       });
   }, []);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => doFilter(), [searchVal, filterVal]);
 
   function doFilter() {
     setCountries(
       allCountries.filter(
         (country) =>
+          // eslint-disable-next-line operator-linebreak
           (country.region.toLowerCase().includes(filterVal) || !filterVal) &&
           (country.name.common.toLowerCase().includes(searchVal) || !searchVal)
       )
