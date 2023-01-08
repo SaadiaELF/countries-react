@@ -11,7 +11,6 @@ function CountryDetails({ countryName, handleClick }) {
       .then((response) => response.json())
       .then((data) => {
         setCountry(data[0]);
-        console.log(data[0].borders);
         if (data[0].borders) {
           setCountriesCode(data[0].borders.toString());
         }
@@ -24,7 +23,6 @@ function CountryDetails({ countryName, handleClick }) {
       fetch(`https://restcountries.com/v3.1/alpha?codes=${countriesCode}`)
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           setBorderCountries(data);
         });
   }, [countriesCode]);
