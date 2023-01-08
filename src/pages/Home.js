@@ -6,7 +6,7 @@ import Select from "../components/Select";
 
 function Home(props) {
   const [allCountries, setAllCountries] = useState([]);
-  const [countries, setCountries] = useState([]);
+  const [filteredCountries, setFilteredCountries] = useState([]);
   const [searchVal, setSearchVal] = useState("");
   const [filterVal, setFilterVal] = useState("");
 
@@ -14,7 +14,7 @@ function Home(props) {
     fetch("https://restcountries.com/v3.1/all")
       .then((response) => response.json())
       .then((data) => {
-        setCountries(data);
+        setFilteredCountries(data);
         setAllCountries(data);
       });
   }, []);
@@ -23,7 +23,7 @@ function Home(props) {
   useEffect(() => doFilter(), [searchVal, filterVal]);
 
   function doFilter() {
-    setCountries(
+    setFilteredCountries(
       allCountries.filter(
         (country) =>
           // eslint-disable-next-line operator-linebreak
@@ -40,7 +40,7 @@ function Home(props) {
         <Select onchange={(e) => setFilterVal(e.target.value.toLowerCase())} />
       </Container>
       <Container className="container--primary">
-        {countries.map((country, index) => {
+        {filteredCountries.map((country, index) => {
           return (
             <Card
               key={index}
